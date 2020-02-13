@@ -4,13 +4,31 @@ import React from 'react';
 import Todo from './Todo';
 
 export default class TodoList extends React.Component {
+    getCount = () => {
+        return this.props.list.length
+    }
+    
+    getCompletedTasks = () => {
+        return this.props.list.filter(task => task.completed === true).length;
+    }
+
     render() {
         return (
-            <div>
-                <ul>
+            <div className="tasks-wrapper">
+                <div className="menu">
+                    <div className="menu-item">
+                        <span>Tasks: </span>{this.getCount()}
+                    </div>
+                    <div className="menu-item">
+                        <span>Completed: </span>{this.getCompletedTasks()}
+                    </div>
+                    <button onClick={e => this.props.clearCompleted(e)} className="btn btn-clear">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <ul className="tasks">
                     {this.props.list.map((todo, index) => <Todo key={index} toggleCompleted={this.props.toggleCompleted} todo={todo} />)}
                 </ul>
-                <button onClick={e => this.props.clearCompleted(e)} className="btn btn-clear">Clear Completed</button>
             </div>
         )
     }
