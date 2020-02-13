@@ -23,7 +23,7 @@ export default class TodoList extends React.Component {
                         <span>Completed: </span>{this.getCompletedTasks()}
                     </div>
                     <button onClick={e => this.props.clearCompleted(e)} className="btn btn-clear">
-                        <i class="fas fa-trash-alt"></i>
+                        <i className="fas fa-trash-alt"></i>
                     </button>
                 </div>
                 <ul className="tasks">
