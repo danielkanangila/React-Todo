@@ -1,9 +1,6 @@
 import React from 'react';
 import CheckBox from './../CheckBox';
 export default class Todo extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     handleChange = e => {
         this.props.toggleCompleted(this.props.todo.id)

@@ -27,6 +27,9 @@ export default class TodoList extends React.Component {
                     </button>
                 </div>
                 <ul className="tasks">
+                    {!this.props.list.length && 
+                        <h2 className="no-tasks">You haven't add tasks to your list yet.</h2>
+                    }
                     {this.props.list.map((todo, index) => <Todo key={index} toggleCompleted={this.props.toggleCompleted} todo={todo} />)}
                 </ul>
             </div>
