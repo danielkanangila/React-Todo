@@ -10,9 +10,9 @@ export default class Todo extends React.Component {
     } 
 
     render() {
-        return <li className={this.props?.todo?.completed ? "tasks-item completed" : "tasks-item"}>
+        return <li className={this.props.todo.completed ? "tasks-item completed" : "tasks-item"}>
+            <input name="completed" type="checkbox" value={this.props.todo.completed} onChange={this.handleChange}  />
             {this.props?.todo?.task}
-            <input name="completed" type="checkbox" value={this.props?.todo?.completed} onChange={this.handleChange}  />
         </li>
     }
 }
